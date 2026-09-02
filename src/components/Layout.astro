@@ -1,0 +1,38 @@
+---
+import { Font } from "astro:assets";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#fff" />
+    <title>{title} | Rhi & Jegor get married</title>
+    <Font cssVariable="--font-calistoga" preload />
+    <Font cssVariable="--font-abrilfatface" preload />
+    <Font cssVariable="--font-vollkorn" preload />
+    <meta
+      name="description"
+      content="Rhi & Jegor are getting married on 26.06.27 in Bristol"
+    />
+  </head>
+  <body class="p-2 md:p-8 font-abril flex items-center bg-orange-50">
+    <!-- <nav class="text-center">
+      <h1 class="text-4xl font-normal">
+        <a href="/">
+          Rhi &amp; Jegor
+        </a>
+      </h1>
+    </nav> -->
+
+    <slot />
+  </body>
+</html>

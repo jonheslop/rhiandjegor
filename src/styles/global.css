@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-abril: var(--font-abrilfatface);
+  --font-serif: var(--font-vollkorn);
+}
+
+html,body {
+  height: 100%;
+  min-height: 100%;
+}
