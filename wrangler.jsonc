@@ -8,6 +8,10 @@
 		"directory": "./dist",
 		"binding": "ASSETS"
 	},
+	"routes": [
+		{ "pattern": "rhiandjegor.co.uk", "custom_domain": true },
+		{ "pattern": "www.rhiandjegor.co.uk", "custom_domain": true }
+	],
 	"observability": {
 		"enabled": true
 	}

@@ -19,7 +19,11 @@
     "tailwindcss": "^4.3.3",
     "wrangler": "^4.128.0"
   },
-  "allowScripts": {
-    "esbuild": true
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp",
+      "workerd"
+    ]
   }
 }
