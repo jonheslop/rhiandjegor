@@ -4,9 +4,10 @@ import "../styles/global.css";
 
 interface Props {
   title: string;
+  showLogo?: boolean;
 }
 
-const { title } = Astro.props;
+const { title, showLogo = false } = Astro.props;
 ---
 
 <html lang="en">
@@ -23,15 +24,18 @@ const { title } = Astro.props;
       content="Rhi & Jegor are getting married on 26.06.27 in Bristol"
     />
   </head>
-  <body class="p-2 md:p-8 font-abril flex items-center bg-orange-50">
-    <!-- <nav class="text-center">
-      <h1 class="text-4xl font-normal">
-        <a href="/">
-          Rhi &amp; Jegor
-        </a>
-      </h1>
-    </nav> -->
-
+  <body class="p-2 md:p-8 font-serif flex flex-col items-center bg-taupe-200 w-full">
+    {showLogo && (
+      <nav class="text-center w-full flex items-center justify-center">
+        <h1 class="font-abril text-5xl font-normal leading-none italic text-red-600 w-48 mx-auto translate-x-8 mt-8">
+          <a href="/" class="flex flex-col items-start">
+            <span class="relative z-10">Rhi</span >
+            <span class="text-8xl leading-0 text-blue-400 self-center relative z-20 mix-blend-multiply -translate-y-2">&amp;</span>
+            <span class="relative z-10 -mt-2.5">Jegor</span>
+          </a>
+        </h1>
+      </nav>
+    )}
     <slot />
   </body>
 </html>

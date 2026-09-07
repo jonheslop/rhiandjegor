@@ -5,7 +5,17 @@
   --font-serif: var(--font-vollkorn);
 }
 
-html,body {
+html,
+body {
   height: 100%;
   min-height: 100%;
+}
+
+input {
+  @apply border border-taupe-400 px-2 pt-1.5 pb-0.5 leading-none text-xl;
+}
+
+label,
+legend {
+  @apply uppercase tracking-widest text-sm font-bold text-taupe-400;
 }

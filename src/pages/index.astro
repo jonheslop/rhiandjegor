@@ -5,7 +5,7 @@ import photo from "../assets/rhi-and-jeg.webp";
 ---
 
 <Layout title="Hello">
-  <main class="grid grid-cols-5 gap-4 items-center max-w-sm mx-auto">
+  <main class="grid grid-cols-5 gap-4 lg:gap-8 items-center max-w-md mx-auto">
   <Image
   loading="eager"
     src={photo}
@@ -15,24 +15,25 @@ import photo from "../assets/rhi-and-jeg.webp";
     sizes={`(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 50vw`}
   />
   <div class="col-span-3 flex flex-col gap-8">
-    <h1 class="text-7xl font-normal leading-none italic text-orange-500">
+    <h1 class="text-7xl font-normal leading-none italic text-red-600">
       <a href="/" class="flex flex-col items-start">
         <span class="relative z-10">Rhi</span >
-        <span class="text-[10rem] leading-0 text-orange-200 self-center relative z-20 mix-blend-multiply translate-x-4">&amp;</span>
+        <span class="text-[10rem] leading-0 text-blue-400 self-center relative z-20 mix-blend-multiply translate-x-4">&amp;</span>
         <span class="relative z-10">Jegor</span>
       </a>
     </h1>
 
-    <div class="ml-4 mt-4 text-orange-500 font-serif">
-      <p class="text-balance italic text-xl">
-        Invite you to join them at their wedding on
+    <div class="mt-4 text-red-600 font-serif">
+      <p class="ml-4 text-balance italic text-xl">
+        Invite you to join them at their wedding
       </p>
-      <p class="text-[2.5rem] mt-4">26.06.2027</p>
+      <p class="ml-6 mt-4">on <span class="font-abril text-[2.5rem]">26.06.2027</span></p>
+      <p class="ml-8 italic text-xl">in <span class="font-abril text-[2.5rem] mt-4">Bristol</span></p>
     </div>
 
-    <button class="ml-6 p-4 bg-orange-500 font-serif font-bold text-xl rounded-full text-orange-50 tracking-widest leading-none flex items-center justify-center">
+    <a href="/rsvp" class="ml-10 p-4 bg-red-600 font-serif font-bold text-xl rounded-full text-orange-50 tracking-widest leading-none flex items-center justify-center">
       RSVP
-    </button>
+    </a>
   </div>
   </main>
 </Layout>
