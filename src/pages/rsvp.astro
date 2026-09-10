@@ -1,0 +1,32 @@
+---
+import Layout from "../components/Layout.astro";
+---
+
+<Layout title="Hello" showLogo>
+  <main class="w-sm mx-auto h-full">
+    <form class="flex flex-col gap-8 my-auto mt-16">
+      <div class="flex flex-col">
+        <label for="name">Name</label>
+        <input type="text" name="name" placeholder="Your name" required />
+      </div>
+      <div class="flex flex-col">
+        <label for="email">Email<span class="re">*</span></label>
+        <input type="email" name="email" placeholder="Your email" required />
+      </div>
+      <div class="flex flex-col">
+        <label for="dietaries">Dietaries</label>
+        <input type="text" name="dietaries" placeholder="Your dietaries" />
+      </div>
+      <fieldset class="flex flex-wrap gap-4">
+        <legend class="w-full">We will be coming</legend>
+        <label class="mt-1" for="yes">Yes</label>
+        <input type="radio" name="rsvp" value="yes" id="yes" />
+        <label class="mt-1" for="no">No</label>
+        <input type="radio" name="rsvp" value="no" id="no" />
+      </fieldset>
+      <button type="submit" class="p-4 bg-orange-500 font-serif font-bold text-xl rounded-full text-orange-50 tracking-widest leading-none flex items-center justify-center uppercase">
+        Submit
+      </button>
+    </form>
+  </main>
+</Layout>
