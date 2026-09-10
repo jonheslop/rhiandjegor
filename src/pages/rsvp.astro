@@ -10,16 +10,16 @@ const result = Astro.getActionResult(actions.rsvp);
 <Layout title="RSVP" showLogo>
   <main class="w-sm mx-auto h-full">
     {result && !result.error ? (
-      <div class="mt-16 text-center text-orange-500 flex flex-col gap-4">
+      <div class="mt-16 text-orange-500 flex flex-col gap-4">
         {result.data.attending ? (
           <>
             <p class="text-6xl">🎉</p>
-            <p class="text-2xl italic text-balance">Thank you! We can't wait to see you there.</p>
+            <p class="text-2xl italic text-pretty">Thank you! We can't wait to see you there.</p>
           </>
         ) : (
-          <p class="text-2xl italic text-balance">Thanks for letting us know. We'll miss you!</p>
+          <p class="text-2xl italic text-pretty">Thanks for letting us know. We'll miss you!</p>
         )}
-        <a href="/" class="mt-4 underline">Back</a>
+        <a href="/" class="mt-4 underline">Go back home</a>
       </div>
     ) : (
       <form method="POST" action={actions.rsvp} class="flex flex-col gap-6 my-auto mt-16">
