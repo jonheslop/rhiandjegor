@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig, fontProviders } from "astro/config";
+import { defineConfig, envField, fontProviders } from "astro/config";
 
 import tailwindcss from '@tailwindcss/vite';
 
@@ -19,6 +19,13 @@ export default defineConfig({
       cssVariable: "--font-vollkorn",
     }
   ],
+  env: {
+    schema: {
+      GOOGLE_CLIENT_EMAIL: envField.string({ context: "server", access: "secret" }),
+      GOOGLE_PRIVATE_KEY: envField.string({ context: "server", access: "secret" }),
+      GOOGLE_SHEET_ID: envField.string({ context: "server", access: "secret" }),
+    },
+  },
   vite: {
     plugins: [tailwindcss()]
   },

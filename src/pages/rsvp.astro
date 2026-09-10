@@ -1,32 +1,79 @@
 ---
+import { actions } from "astro:actions";
 import Layout from "../components/Layout.astro";
+
+export const prerender = false;
+
+const result = Astro.getActionResult(actions.rsvp);
 ---
 
-<Layout title="Hello" showLogo>
+<Layout title="RSVP" showLogo>
   <main class="w-sm mx-auto h-full">
-    <form class="flex flex-col gap-8 my-auto mt-16">
-      <div class="flex flex-col">
-        <label for="name">Name</label>
-        <input type="text" name="name" placeholder="Your name" required />
+    {result && !result.error ? (
+      <div class="mt-16 text-center text-orange-500 flex flex-col gap-4">
+        {result.data.attending ? (
+          <>
+            <p class="text-6xl">🎉</p>
+            <p class="text-2xl italic text-balance">Thank you! We can't wait to see you there.</p>
+          </>
+        ) : (
+          <p class="text-2xl italic text-balance">Thanks for letting us know. We'll miss you!</p>
+        )}
+        <a href="/" class="mt-4 underline">Back</a>
       </div>
-      <div class="flex flex-col">
-        <label for="email">Email<span class="re">*</span></label>
-        <input type="email" name="email" placeholder="Your email" required />
-      </div>
-      <div class="flex flex-col">
-        <label for="dietaries">Dietaries</label>
-        <input type="text" name="dietaries" placeholder="Your dietaries" />
-      </div>
-      <fieldset class="flex flex-wrap gap-4">
-        <legend class="w-full">We will be coming</legend>
-        <label class="mt-1" for="yes">Yes</label>
-        <input type="radio" name="rsvp" value="yes" id="yes" />
-        <label class="mt-1" for="no">No</label>
-        <input type="radio" name="rsvp" value="no" id="no" />
-      </fieldset>
-      <button type="submit" class="p-4 bg-orange-500 font-serif font-bold text-xl rounded-full text-orange-50 tracking-widest leading-none flex items-center justify-center uppercase">
-        Submit
-      </button>
-    </form>
+    ) : (
+      <form method="POST" action={actions.rsvp} class="flex flex-col gap-6 my-auto mt-16">
+        {result?.error && (
+          <p class="text-orange-600 italic text-balance">
+            {result.error.code === "BAD_REQUEST"
+              ? "Please check the form and try again."
+              : result.error.message}
+          </p>
+        )}
+        <div class="flex flex-col">
+          <label for="name">Name<span class="text-orange-600">*</span></label>
+          <input type="text" name="name" id="name" placeholder="Your name" required />
+        </div>
+        <div class="flex flex-col">
+          <label for="email">Email<span class="text-orange-600">*</span></label>
+          <input type="email" name="email" id="email" placeholder="Your email" required />
+        </div>
+        <fieldset class="flex flex-wrap gap-4">
+          <legend class="w-full">We will be coming<span class="text-orange-600">*</span></legend>
+          <label class="mt-1" for="yes">Yes</label>
+          <input type="radio" name="rsvp" value="yes" id="yes" required />
+          <label class="mt-1" for="no">No</label>
+          <input type="radio" name="rsvp" value="no" id="no" />
+        </fieldset>
+        <div class="flex flex-col if-attending">
+          <label for="count">Number of people</label>
+          <input
+            name="count"
+            id="count"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            class="w-32"
+          />
+        </div>
+        <div class="flex flex-col if-attending">
+          <label for="dietaries">Dietaries</label>
+          <input type="text" name="dietaries" id="dietaries" placeholder="Your dietaries" />
+        </div>
+        <div class="absolute -left-[9999px]" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" />
+        </div>
+        <button type="submit" class="p-4 bg-orange-500 font-serif font-bold text-xl rounded-full text-orange-50 tracking-widest leading-none flex items-center justify-center uppercase">
+          Submit
+        </button>
+      </form>
+    )}
   </main>
 </Layout>
+
+<style>
+  /* Hide the "if you're coming" fields once someone picks No. No JS needed. */
+  form:has(#no:checked) .if-attending {
+    display: none;
+  }
+</style>
