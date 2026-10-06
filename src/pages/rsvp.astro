@@ -9,20 +9,46 @@ const result = Astro.getActionResult(actions.rsvp);
 
 <Layout title="RSVP" showLogo>
   <main class="w-sm mx-auto h-full">
+    <div class="mt-16 flex flex-col gap-4">
+      <p>
+        Our wedding will be at{" "}
+        <a
+          class="underline text-orange-600"
+          href="https://www.stnicholasbristol.org/"
+        >
+          St Nicholas Church
+        </a>{" "}
+        followed by the reception at{" "}
+        <a class="underline text-orange-600" href="https://mud-dock.co.uk/">
+          Mud Dock
+        </a>
+        . We’ll add more details to the website soon. Please RSVP below.
+      </p>
+    </div>
     {result && !result.error ? (
       <div class="mt-16 text-orange-500 flex flex-col gap-4">
         {result.data.attending ? (
           <>
             <p class="text-6xl">🎉</p>
-            <p class="text-2xl italic text-pretty">Thank you! We can't wait to see you there.</p>
+            <p class="text-2xl italic text-pretty">
+              Thank you! We can't wait to see you there.
+            </p>
           </>
         ) : (
-          <p class="text-2xl italic text-pretty">Thanks for letting us know. We'll miss you!</p>
+          <p class="text-2xl italic text-pretty">
+            Thanks for letting us know. We'll miss you!
+          </p>
         )}
-        <a href="/" class="mt-4 underline">Go back home</a>
+        <a href="/" class="mt-4 underline">
+          Go back home
+        </a>
       </div>
     ) : (
-      <form method="POST" action={actions.rsvp} class="flex flex-col gap-6 my-auto mt-16">
+      <form
+        method="POST"
+        action={actions.rsvp}
+        class="flex flex-col gap-6 my-auto mt-16"
+      >
         {result?.error && (
           <p class="text-orange-600 italic text-balance">
             {result.error.code === "BAD_REQUEST"
@@ -31,18 +57,40 @@ const result = Astro.getActionResult(actions.rsvp);
           </p>
         )}
         <div class="flex flex-col">
-          <label for="name">Name<span class="text-orange-600">*</span></label>
-          <input type="text" name="name" id="name" placeholder="Your name" required />
+          <label for="name">
+            Name<span class="text-orange-600">*</span>
+          </label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Your name"
+            required
+          />
         </div>
         <div class="flex flex-col">
-          <label for="email">Email<span class="text-orange-600">*</span></label>
-          <input type="email" name="email" id="email" placeholder="Your email" required />
+          <label for="email">
+            Email<span class="text-orange-600">*</span>
+          </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Your email"
+            required
+          />
         </div>
         <fieldset class="flex flex-wrap gap-4">
-          <legend class="w-full">We will be coming<span class="text-orange-600">*</span></legend>
-          <label class="mt-1" for="yes">Yes</label>
+          <legend class="w-full">
+            We will be coming<span class="text-orange-600">*</span>
+          </legend>
+          <label class="mt-1" for="yes">
+            Yes
+          </label>
           <input type="radio" name="rsvp" value="yes" id="yes" required />
-          <label class="mt-1" for="no">No</label>
+          <label class="mt-1" for="no">
+            No
+          </label>
           <input type="radio" name="rsvp" value="no" id="no" />
         </fieldset>
         <div class="flex flex-col if-attending">
@@ -57,13 +105,27 @@ const result = Astro.getActionResult(actions.rsvp);
         </div>
         <div class="flex flex-col if-attending">
           <label for="dietaries">Dietaries</label>
-          <input type="text" name="dietaries" id="dietaries" placeholder="Your dietaries" />
+          <input
+            type="text"
+            name="dietaries"
+            id="dietaries"
+            placeholder="Your dietaries"
+          />
         </div>
         <div class="absolute -left-[9999px]" aria-hidden="true">
           <label for="website">Website</label>
-          <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" />
+          <input
+            type="text"
+            name="website"
+            id="website"
+            tabindex="-1"
+            autocomplete="off"
+          />
         </div>
-        <button type="submit" class="p-4 bg-orange-500 font-serif font-bold text-xl rounded-full text-orange-50 tracking-widest leading-none flex items-center justify-center uppercase">
+        <button
+          type="submit"
+          class="p-4 bg-orange-500 font-serif font-bold text-xl rounded-full text-orange-50 tracking-widest leading-none flex items-center justify-center uppercase"
+        >
           Submit
         </button>
       </form>
