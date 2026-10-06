@@ -5,9 +5,9 @@ import Layout from "../components/Layout.astro";
 <Layout title="Info" showLogo>
   <main class="w-sm mx-auto h-full">
     <div class="mt-16 flex flex-col gap-4">
-      <ul>
+      <ul class="list-disc list-inside leading-snug">
         <li>
-          Ceremony: 2pm at{" "}
+          <em class="mr-2">Ceremony</em> 2pm at{" "}
           <a
             class="link"
             href="https://www.stnicholasbristol.org/"
@@ -17,7 +17,7 @@ import Layout from "../components/Layout.astro";
           </a>
         </li>
         <li>
-          Reception: 4pm at{" "}
+          <em class="mr-2">Reception</em> 4pm at{" "}
           <a class="link" href="https://mud-dock.co.uk/" target="_blank">
             Mud Dock
           </a>
@@ -33,11 +33,19 @@ import Layout from "../components/Layout.astro";
         >
           10 minute walk
         </a>{" "}
-        away from St. Nicks.
+        away from St. Nicks. The nearest carpark to both is{" "}
+        <a
+          class="link"
+          href="https://apex-parking.co.uk/car-parks/prince-street/"
+          target="_blank"
+        >
+          Apex on Prince Street
+        </a>
+        .
       </p>
       <p>
         We’ll send out an update closer to the big day, as well adding in some
-        recommended hotels and our favourite places to eat nearby.
+        recommended hotels and our favourite places to eat nearby on this page.
       </p>
     </div>
     <div class="mt-8">
