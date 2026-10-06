@@ -19,3 +19,7 @@ label,
 legend {
   @apply uppercase tracking-widest text-sm font-bold text-taupe-400;
 }
+
+.link {
+  @apply text-orange-600 underline;
+}

@@ -9,22 +9,6 @@ const result = Astro.getActionResult(actions.rsvp);
 
 <Layout title="RSVP" showLogo>
   <main class="w-sm mx-auto h-full">
-    <div class="mt-16 flex flex-col gap-4">
-      <p>
-        Our wedding will be at{" "}
-        <a
-          class="underline text-orange-600"
-          href="https://www.stnicholasbristol.org/"
-        >
-          St Nicholas Church
-        </a>{" "}
-        followed by the reception at{" "}
-        <a class="underline text-orange-600" href="https://mud-dock.co.uk/">
-          Mud Dock
-        </a>
-        . We’ll add more details to the website soon. Please RSVP below.
-      </p>
-    </div>
     {result && !result.error ? (
       <div class="mt-16 text-orange-500 flex flex-col gap-4">
         {result.data.attending ? (
@@ -39,8 +23,8 @@ const result = Astro.getActionResult(actions.rsvp);
             Thanks for letting us know. We'll miss you!
           </p>
         )}
-        <a href="/" class="mt-4 underline">
-          Go back home
+        <a href="/info" class="mt-4 underline">
+          Learn more about the day here
         </a>
       </div>
     ) : (
