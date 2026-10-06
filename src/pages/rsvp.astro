@@ -66,7 +66,7 @@ const result = Astro.getActionResult(actions.rsvp);
         </div>
         <fieldset class="flex flex-wrap gap-4">
           <legend class="w-full">
-            We will be coming<span class="text-orange-600">*</span>
+            Can you attend?<span class="text-orange-600">*</span>
           </legend>
           <label class="mt-1" for="yes">
             Yes
@@ -78,7 +78,7 @@ const result = Astro.getActionResult(actions.rsvp);
           <input type="radio" name="rsvp" value="no" id="no" />
         </fieldset>
         <div class="flex flex-col if-attending">
-          <label for="count">Number of people</label>
+          <label for="count">Number of guests</label>
           <input
             name="count"
             id="count"
@@ -88,7 +88,7 @@ const result = Astro.getActionResult(actions.rsvp);
           />
         </div>
         <div class="flex flex-col if-attending">
-          <label for="dietaries">Dietaries</label>
+          <label for="dietaries">Any Dietaries</label>
           <input
             type="text"
             name="dietaries"

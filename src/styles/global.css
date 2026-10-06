@@ -17,7 +17,7 @@ input {
 
 label,
 legend {
-  @apply uppercase tracking-widest text-sm font-bold text-taupe-400;
+  @apply uppercase tracking-widest text-sm font-bold text-taupe-500;
 }
 
 .link {
