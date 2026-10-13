@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="color-scheme" content="light">
+  <title>Rhi &amp; Jegor are getting married</title>
+</head>
+<!--
+  Invite email template.
+
+  Placeholders the send script fills in:
+    {{names}}    e.g. "Sam and Alex"        (from the guest sheet)
+    {{rsvpUrl}}  e.g. https://rhiandjegor.co.uk/rsvp?name=Sam%20and%20Alex
+
+  Email clients ignore <style> blocks and web fonts, so everything is
+  inline styles, tables, and system fonts. Keep it that way.
+  Images must be absolute URLs on the live site.
+-->
+<body style="margin:0;padding:0;background-color:#f5f2f0;">
+  <!-- Preheader: shows in the inbox preview, hidden in the email itself -->
+  <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+    Rhi &amp; Jegor are getting married on 26 June 2027 in Bristol, and you're invited.
+  </div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f5f2f0;">
+    <tr>
+      <td align="center" style="padding:40px 16px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:520px;">
+
+          <!-- Wordmark -->
+          <tr>
+            <td align="center" style="padding-bottom:32px;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:56px;line-height:1;color:#ff6900;">
+              Rhi <span style="color:#ffd6a8;">&amp;</span> Jegor
+            </td>
+          </tr>
+
+          <!-- Photo -->
+          <tr>
+            <td align="center" style="padding-bottom:32px;">
+              <img src="https://rhiandjegor.co.uk/email/rhi-and-jegor.jpg"
+                   width="320" alt="Rhi and Jegor in a photobooth"
+                   style="display:block;width:320px;max-width:100%;height:auto;border:0;">
+            </td>
+          </tr>
+
+          <!-- Greeting -->
+          <tr>
+            <td style="padding-bottom:16px;font-family:Georgia,'Times New Roman',serif;font-size:22px;line-height:1.4;color:#ff6900;">
+              Dear {{names}},
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="padding-bottom:8px;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:22px;line-height:1.4;color:#ff6900;">
+              Rhi and Jegor invite you to join them at their wedding
+            </td>
+          </tr>
+          <tr>
+            <td style="padding-bottom:4px;font-family:Georgia,'Times New Roman',serif;font-size:20px;line-height:1.4;color:#ff6900;">
+              on <span style="font-size:40px;font-style:italic;">26.06.2027</span>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding-bottom:32px;font-family:Georgia,'Times New Roman',serif;font-size:20px;line-height:1.4;color:#ff6900;">
+              in <span style="font-size:40px;font-style:italic;">Bristol</span>
+            </td>
+          </tr>
+
+          <!-- RSVP button -->
+          <tr>
+            <td align="center" style="padding-bottom:32px;">
+              <a href="{{rsvpUrl}}"
+                 style="display:inline-block;background-color:#ff6900;color:#fff7ed;font-family:Georgia,'Times New Roman',serif;font-weight:bold;font-size:18px;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;padding:18px 44px;border-radius:999px;">
+                RSVP
+              </a>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td align="center" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;line-height:1.5;color:#a89f9a;">
+              Please RSVP by [date]. Questions? Just reply to this email.<br>
+              <a href="https://rhiandjegor.co.uk" style="color:#a89f9a;">rhiandjegor.co.uk</a>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

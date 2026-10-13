@@ -1,0 +1,10 @@
+Dear {{names}},
+
+Rhi and Jegor invite you to join them at their wedding
+on 26 June 2027 in Bristol.
+
+Please RSVP here: {{rsvpUrl}}
+
+RSVP by [date]. Questions? Just reply to this email.
+
+https://rhiandjegor.co.uk
