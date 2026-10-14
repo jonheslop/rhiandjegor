@@ -3,7 +3,7 @@ import { Font } from "astro:assets";
 import "../styles/global.css";
 
 interface Props {
-  title: string;
+  title?: string;
   showLogo?: boolean;
 }
 
@@ -16,7 +16,7 @@ const { title, showLogo = false } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#fff" />
-    <title>{title} | Rhi & Jegor get married</title>
+    <title>{title ? `${title} | ` : ""}Rhi & Jegor get married</title>
     <Font cssVariable="--font-abrilfatface" preload />
     <Font cssVariable="--font-vollkorn" preload />
     <meta
