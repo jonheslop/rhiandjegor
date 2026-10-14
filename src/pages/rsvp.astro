@@ -116,13 +116,34 @@ const result = Astro.getActionResult(actions.rsvp);
             autocomplete="off"
           />
         </div>
-        <button type="submit" class="p-4 bg-orange-500 font-serif font-bold text-xl rounded-full text-orange-50 leading-none flex items-center justify-center">
+        <button type="submit" class="disabled:opacity-60 disabled:cursor-wait p-4 bg-orange-500 font-serif font-bold text-xl rounded-full text-orange-50 leading-none flex items-center justify-center">
           Submit your RSVP
         </button>
       </form>
     )}
   </main>
 </Layout>
+
+<script>
+  // Stop double taps sending the RSVP twice while the server talks to Sheets.
+  const form = document.querySelector<HTMLFormElement>("form[method=POST]");
+  const button = form?.querySelector<HTMLButtonElement>("button[type=submit]");
+  const label = button?.textContent;
+  form?.addEventListener("submit", (event) => {
+    if (button?.disabled) return event.preventDefault();
+    if (button) {
+      button.disabled = true;
+      button.textContent = "Sending…";
+    }
+  });
+  // Re-enable if they come back via the back button (bfcache keeps the disabled state).
+  window.addEventListener("pageshow", () => {
+    if (button) {
+      button.disabled = false;
+      button.textContent = label ?? "";
+    }
+  });
+</script>
 
 <style>
   /* Hide the "if you're coming" fields once someone picks No. No JS needed. */
