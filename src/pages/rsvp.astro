@@ -23,9 +23,12 @@ const result = Astro.getActionResult(actions.rsvp);
             Thanks for letting us know. We'll miss you!
           </p>
         )}
-        <a href="/info" class="mt-4 underline">
+        <a href="/info" class="block mt-4 underline">
           Learn more about the day here
         </a>
+        <p class="mt-4">
+          <em class="text-taupe-400">P.S. More details to follow by email soon</em>
+        </p>
       </div>
     ) : (
       <form
@@ -33,6 +36,24 @@ const result = Astro.getActionResult(actions.rsvp);
         action={actions.rsvp}
         class="flex flex-col gap-6 my-auto mt-16"
       >
+        <p>
+           Ceremony at{" "}
+            <a
+              class="link"
+              href="https://maps.app.goo.gl/XV1HSCgVGFwCbMTC7"
+              target="_blank"
+            >
+              St Nicholas Church
+            </a>, BS1 1UE.<br/>
+            Followed by the reception at{" "}
+            <a class="link" href="https://maps.app.goo.gl/8ogbUCNmDuMyU1qM9" target="_blank">
+              Mud Dock Café
+            </a>, BS1 4RB
+        </p>
+        <p>
+          <em class="text-taupe-400">Please RSVP by January 31st 2027</em>
+        </p>
+
         {result?.error && (
           <p class="text-orange-600 italic text-balance">
             {result.error.code === "BAD_REQUEST"
@@ -42,15 +63,14 @@ const result = Astro.getActionResult(actions.rsvp);
         )}
         <div class="flex flex-col">
           <label for="name">
-            Name<span class="text-orange-600">*</span>
+            Names of guest(s)<span class="text-orange-600">*</span>
           </label>
-          <input
-            type="text"
+          <textarea
             name="name"
             id="name"
-            placeholder="Your name"
+            placeholder="Your names"
             required
-          />
+          ></textarea>
         </div>
         <div class="flex flex-col">
           <label for="email">
@@ -78,22 +98,12 @@ const result = Astro.getActionResult(actions.rsvp);
           <input type="radio" name="rsvp" value="no" id="no" />
         </fieldset>
         <div class="flex flex-col if-attending">
-          <label for="count">Number of guests</label>
-          <input
-            name="count"
-            id="count"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            class="w-32"
-          />
-        </div>
-        <div class="flex flex-col if-attending">
           <label for="dietaries">Any Dietaries</label>
           <input
             type="text"
             name="dietaries"
             id="dietaries"
-            placeholder="Your dietaries"
+            placeholder="e.g Vegan or gluten free"
           />
         </div>
         <div class="absolute -left-[9999px]" aria-hidden="true">

@@ -30,12 +30,11 @@ export const server = {
       name: z.string().trim().min(1),
       email: z.email(),
       rsvp: z.enum(["yes", "no"]),
-      count: z.number().int().min(1).optional(),
       dietaries: z.string().trim().optional(),
       // Honeypot: real people never see or fill this.
       website: z.string().optional(),
     }),
-    handler: async ({ name, email, rsvp, count, dietaries, website }) => {
+    handler: async ({ name, email, rsvp, dietaries, website }) => {
       const attending = rsvp === "yes";
 
       // Bots fill the honeypot; pretend it worked and write nothing.
@@ -48,7 +47,7 @@ export const server = {
             privateKey: GOOGLE_PRIVATE_KEY,
             sheetId: GOOGLE_SHEET_ID,
           },
-          [timestamp(), name, email, attending ? "Yes" : "No", count ?? "", dietaries ?? ""],
+          [timestamp(), name, email, attending ? "Yes" : "No", dietaries ?? ""],
         );
       } catch (err) {
         console.error(err);
